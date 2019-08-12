@@ -3,6 +3,7 @@ com\fanniemae\mcas\controller\BookController.class
 com\fanniemae\mcas\model\Book.class
 com\fanniemae\mcas\service\BookService.class
 com\fanniemae\mcas\dao\BookDao.class
-com\fanniemae\mcas\service\BookServiceImp.class
+com\fanniemae\mcas\dao\BookDaoImpl.class
 com\fanniemae\mcas\config\McasWebAppInitializer.class
+com\fanniemae\mcas\service\BookServiceImpl.class
 com\fanniemae\mcas\config\AppConfig.class

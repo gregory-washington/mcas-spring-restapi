@@ -25,6 +25,10 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import lotus.domino.NotesException;
+import lotus.domino.NotesFactory;
+import lotus.domino.Session;
+
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
@@ -68,6 +72,13 @@ public class AppConfig {
     HibernateTransactionManager transactionManager = new HibernateTransactionManager();
     transactionManager.setSessionFactory(getSessionFactory().getObject());
     return transactionManager;
+  }
+
+  @Bean
+  public Session dominoDBSession() throws NotesException {
+    Session session = NotesFactory.createSession(env.getProperty("domino.iiop.host"),
+        env.getProperty("domino.iiop.user"), env.getProperty("domino.iiop.password"));
+    return session;
   }
 
 }
